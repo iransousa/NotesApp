@@ -10,7 +10,7 @@ import {
 export const hasPermissionIOS = async () => {
   const openSetting = () => {
     Linking.openSettings().catch(() => {
-      Alert.alert('Unable to open settings');
+      Alert.alert('Não foi possivel abrir as configurações');
     });
   };
   const status = await Geolocation.requestAuthorization('whenInUse');
@@ -20,18 +20,14 @@ export const hasPermissionIOS = async () => {
   }
 
   if (status === 'denied') {
-    Alert.alert('Location permission denied');
+    Alert.alert('Permissão de localização negada');
   }
 
   if (status === 'disabled') {
-    Alert.alert(
-      'Turn on Location Services to allow  to determine your location.',
-      '',
-      [
-        {text: 'Go to Settings', onPress: openSetting},
-        {text: "Don't Use Location", onPress: () => {}},
-      ],
-    );
+    Alert.alert('Habilite o serviço de localização', '', [
+      {text: 'Vá em configurações', onPress: openSetting},
+      {text: 'Não usar localização', onPress: () => {}},
+    ]);
   }
 
   return false;

@@ -5,7 +5,6 @@ const COLORS = {
   header: '#ffc917',
   headerButtons: '#000',
   addButton: '#fff',
-  loading: '#0000ff',
   searchBar: '#d3d3d3',
 };
 

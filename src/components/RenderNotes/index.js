@@ -19,6 +19,10 @@ export default function renderNote({item, navigation}) {
       <Text style={Style.txtNote} numberOfLines={6}>
         {item.note}
       </Text>
+      <Text style={Style.txtNote} numberOfLines={3}>
+        {item.latitude}
+        {item.longitude}
+      </Text>
     </TouchableOpacity>
   );
 }

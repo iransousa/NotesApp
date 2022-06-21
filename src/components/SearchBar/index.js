@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import {View, TextInput} from 'react-native';
 import Style from './style';
 import NotesContext from '../../context/NotesContext';
@@ -7,7 +7,7 @@ export default function SearchBar({data, onChange}) {
   const {notes, setNotes} = useContext(NotesContext);
   const search = text => {
     if (text) {
-      const newData = notes.filter(item => {
+      const newData = data.filter(item => {
         const itemTitle = item.title
           ? item.title.toUpperCase()
           : ''.toUpperCase();
