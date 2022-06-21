@@ -12,12 +12,28 @@ export function StackRoutes() {
       <Screen
         name="Home"
         component={HomeScreen}
-        options={{headerShown: true}}
+        options={{
+          headerShown: true,
+          title: 'Notas',
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#252525',
+          },
+          headerTintColor: '#FFF',
+        }}
       />
       <Screen
-        name="Note"
+        name="Notes"
         component={NoteScreen}
-        options={{headerShown: true}}
+        options={{
+          headerShown: true,
+          title: 'Notas',
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#252525',
+          },
+          headerTintColor: '#FFF',
+        }}
       />
     </Navigator>
   );
