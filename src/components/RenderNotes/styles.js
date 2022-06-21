@@ -16,6 +16,7 @@ export const Container = styled.View`
 
 export const TextNote = styled.Text`
   color: black;
+  margin: 5px;
 `;
 
 export const TextNoteTittle = styled.Text`

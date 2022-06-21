@@ -3,7 +3,6 @@ import {FlatList} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SearchBar from '../../components/SearchBar';
-import Colors from '../../styles/colors';
 import Notes from '../../components/RenderNotes';
 import NotesContext from '../../context/NotesContext';
 import {Container, TextTittle, TextEmpty, NewNoteButton} from './styles';
@@ -29,7 +28,7 @@ export default function Home() {
       />
       <NewNoteButton
         onPress={() => navigation.navigate('Notes', {id: '', search: false})}>
-        <AntDesign name="pluscircleo" size={50} color={Colors.addButton} />
+        <AntDesign name="pluscircleo" size={50} color="#fff" />
       </NewNoteButton>
     </Container>
   );
