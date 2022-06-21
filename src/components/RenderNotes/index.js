@@ -1,28 +1,24 @@
 import React from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
-import Style from './style';
+import {NoteCard, Container, TextNoteTittle, TextNote} from './styles';
+import {Dimensions} from 'react-native';
+
+const width = (Dimensions.get('window').width - 60) / 2;
+const height = (Dimensions.get('window').height - 400) / 2;
 
 export default function renderNote({item, navigation}) {
   return (
-    <TouchableOpacity
-      style={Style.noteArea}
+    <NoteCard
+      width={width}
+      height={height}
       onPress={() => navigation.navigate('Notes', {id: item.id, search: true})}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={Style.txtNoteTitle} numberOfLines={2}>
-          {item.title}
-        </Text>
-        {item.notificationId !== null && (
-          <Feather name="bell" size={12} color="gold" />
-        )}
-      </View>
-      <Text style={Style.txtNote} numberOfLines={6}>
-        {item.note}
-      </Text>
-      <Text style={Style.txtNote} numberOfLines={3}>
+      <Container>
+        <TextNoteTittle numberOfLines={2}>{item.title}</TextNoteTittle>
+      </Container>
+      <TextNote numberOfLines={6}>{item.note}</TextNote>
+      <TextNote numberOfLines={3}>
         {item.latitude}
         {item.longitude}
-      </Text>
-    </TouchableOpacity>
+      </TextNote>
+    </NoteCard>
   );
 }

@@ -1,13 +1,7 @@
 import React, {useState, useEffect, useLayoutEffect, useContext} from 'react';
-import {
-  SafeAreaView,
-  View,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {ScrollView, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import Style from './styles';
+import {Container, TextInput, TextNoteTittle, ButtonsBar} from './styles';
 import NotesContext from '../../context/NotesContext';
 import uuid from 'react-native-uuid';
 import {hasLocationPermission} from '../../services/locationService';
@@ -57,20 +51,14 @@ export default function Notes({route, navigation}) {
     navigation.setOptions({
       headerRight: () => {
         return (
-          <View
-            style={{
-              width: 150,
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              marginRight: 30,
-            }}>
+          <ButtonsBar>
             <TouchableOpacity onPress={() => handleSaveNote()}>
               <Feather name="save" size={24} color="white" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handleRemoveNote()}>
               <Feather name="trash-2" size={24} color="white" />
             </TouchableOpacity>
-          </View>
+          </ButtonsBar>
         );
       },
     });
@@ -100,9 +88,8 @@ export default function Notes({route, navigation}) {
   };
 
   return (
-    <SafeAreaView style={Style.conteiner}>
-      <TextInput
-        style={Style.txtTitleNote}
+    <Container>
+      <TextNoteTittle
         autoFocus={true}
         maxLength={40}
         value={note.title}
@@ -111,13 +98,12 @@ export default function Notes({route, navigation}) {
       />
       <ScrollView>
         <TextInput
-          style={Style.txtInput}
           multiline={true}
           value={note.note}
           placeholder={'Anotação'}
           onChangeText={text => setNote({...note, note: text})}
         />
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   );
 }

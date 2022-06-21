@@ -1,40 +1,37 @@
-import {StyleSheet} from 'react-native';
+import styled from 'styled-components';
 
-const style = StyleSheet.create({
-  conteiner: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    backgroundColor: '#252525',
-  },
-  newNoteButton: {
-    zIndex: 9,
-    position: 'absolute',
-    bottom: 30,
-    right: 40,
-    backgroundColor: '#252525',
-    borderRadius: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+export const Container = styled.SafeAreaView`
+  flex: 1;
+  padding-horizontal: 20px;
+  padding-top: 20px;
+  background-color: #252525;
+`;
 
-    elevation: 5,
-  },
-  noteList: {
-    justifyContent: 'space-between',
-    margin: 5,
-  },
-  txtTitle: {
-    margin: 20,
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
+export const TextTittle = styled.Text`
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
+  font-weight: bold;
+`;
 
-export default style;
+export const TextEmpty = styled.Text`
+  color: white;
+  text-align: center;
+  font-weight: bold;
+`;
+
+export const NewNoteButton = styled.TouchableOpacity`
+  z-index: 9;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: '#252525';
+  border-radius: 100px;
+  box-shadow: 10px 5px 5px black;
+`;
+
+export const NoteList = styled.FlatList`
+  justify-content: space-between;
+  margin: 5px;
+`;

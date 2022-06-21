@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import {View, TextInput} from 'react-native';
-import Style from './style';
+import {TextInput} from 'react-native';
+import {SearchArea} from './styles';
 import NotesContext from '../../context/NotesContext';
 
 export default function SearchBar({data, onChange}) {
@@ -21,13 +21,13 @@ export default function SearchBar({data, onChange}) {
   };
 
   return (
-    <View style={Style.searchArea}>
+    <SearchArea>
       <TextInput
         placeholder="Procure uma anotação..."
         placeholderTextColor={'#000'}
         maxLength={50}
         onChangeText={text => search(text)}
       />
-    </View>
+    </SearchArea>
   );
 }
